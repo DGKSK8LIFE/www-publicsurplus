@@ -1,5 +1,21 @@
 use tokio::runtime::Runtime;
 use reqwest;
+use chrono::{DateTime, Utc};
+
+struct Auction<'a> {
+    current_price: usize,
+    time_left: &'a str,
+    no_of_bids: usize,
+    first_offer: usize,
+    auction_started: DateTime<Utc>,
+    auction_ends: DateTime<Utc>,
+    seller: &'a str,
+    pickup_location: &'a str,
+    payment: &'a str,
+    shipping: &'a str,
+    description: &'a str,
+    img_urls: Vec<&'a str>,
+}
 
 #[tokio::main]
 async fn main() {
